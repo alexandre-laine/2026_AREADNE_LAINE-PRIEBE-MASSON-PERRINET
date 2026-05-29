@@ -75,36 +75,20 @@
 
     \vspace{1cm}
 
-    % \begin{minipage}{\textwidth}
-    %     %%%%%%%%%%%%%%%%
-    %     % INTRODUCTION %
-    %     \begin{minipage}{0.4\textwidth}    
-    %         \begin{tcolorbox}[
-    %             title=\textbf{\Large{Introduction}}, 
-    %             colframe=blue!60!black!,
-    %             colback=white, 
-    %             boxsep=10mm
-    %         ]
-    %             \begin{minipage}{\textwidth}
-    %                 Studying the \textbf{internal representation} of natural features (fig. \ref{fig:mc_and_natural_features}) in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates}~\cite{Hubel_Wiesel_1968, Berens_Ecker_Cotton_Ma_Bethge_Tolias_2012} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds~\cite{Leon_Vanzetta_Masson_Perrinet_2012} reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023} (fig. \ref{fig:subpopulations}). The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using \textbf{decoding methods}. \\
-    %             \end{minipage}
-
-    %             \begin{minipage}{0.48\textwidth}
-    %                 \begin{center}
-    %                     \includegraphics[width=\textwidth]{intro_fig.pdf}   
-    %                     \captionof{figure}{Uncertainty in natural images and MotionClouds.}
-    %                     \label{fig:mc_and_natural_features}
-    %                 \end{center}
-    %             \end{minipage}
-    %             \hfill
-    %             \begin{minipage}{0.48\textwidth}
-    %                 \begin{center}
-    %                     \includegraphics[width=\textwidth]{two_subpopulation_cats.pdf}
-    %                     \captionof{figure}{Two subpopulation in cats area 17 (from~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}).}
-    %                     \label{fig:subpopulations}
-    %                 \end{center}
-    %             \end{minipage}
-    %         \end{tcolorbox}
+    \begin{minipage}{\textwidth}
+        %%%%%%%%%%%%%%%%
+        % INTRODUCTION %
+        \begin{minipage}{0.4\textwidth}    
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Introduction}}, 
+                colframe=blue!60!black!,
+                colback=white, 
+                boxsep=10mm
+            ]
+                \begin{minipage}{\textwidth}
+                    Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
+                \end{minipage}
+            \end{tcolorbox}
 
     %         \vspace{1.5cm}
 
@@ -116,35 +100,55 @@
     %         ]
     %             This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L.
     %         \end{tcolorbox}
-    %     \end{minipage}
-    %     \hfill
+        \end{minipage}
+        \hfill
     %     %%%%%%%%%%%
-    %     % METHODS %
-    %     \begin{minipage}{0.58\textwidth}
-    %         \begin{tcolorbox}[
-    %             title=\textbf{\Large{Methods}},
-    %             colback=white, 
-    %             colframe=red!60!black,
-    %             boxsep=10mm
-    %         ]
-    %             \begin{minipage}{0.4\textwidth}
-    %                 Neuronal recordings (fig.~\ref{fig:spiking}) were made in V1 of one marmoset monkey using the Neuropixel 1.0 technology~\cite{Jun_Steinmetz_Siegle_Denman_Bauza_Barbarits_Lee_Anastassiou_Andrei_Aydın_et_al._2017} during 2D motion presentation in eight directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$ and two precision levels ($B_\theta$, high : $22^{\circ}$ or low : $90^{\circ}$). The decoding method (fig.~\ref{fig:decoding}) optimizes the weights of a multinomial logistic regression to achieve optimal decoding accuracy on a training set. \\
-    %                 The objective is to decode the direction of the motion for each precision level. The training is conducted \textbf{(1)} on a broad time-window at the begining or the end of the stimulus presentation, \textbf{(2)} by applying temporal generalization~\cite{King_Dehaene_2014} or \textbf{(3)} after reducing dimensionality with dPCA~\cite{Kobak_Brendel_Constantinidis_Feierstein_Kepecs_Mainen_Qi_Romo_Uchida_Machens_2016}. All the results presented here are computed on the testing test. \\
-    %             \end{minipage}
-    %             \hfill
-    %             \begin{minipage}{0.58\textwidth}
-    %                 \includegraphics[width=1\textwidth]{activity_recorded.pdf}
-    %                 \captionof{figure}{Spiking activity induced by one stimulus ($sf = 0.7~c/^{\circ}$, $B_{sf} = 0.175~c/^{\circ}$, $spd = 2~^{\circ}/s$, $\theta = 45~^{\circ}$, $B_\theta = 90~^{\circ}$)}
-    %                 \label{fig:spiking}
-    %             \end{minipage}
-                
-    %             \begin{center}
-    %                 \includegraphics[width=1\textwidth]{decoding_methods.pdf}
-    %                 \captionof{figure}{Decoding method implemented in Python3 using the PyTorch library.}
-    %                 \label{fig:decoding}
-    %             \end{center}
-    %         \end{tcolorbox}
-    %     \end{minipage}
+        % METHODS %
+        \begin{minipage}{0.58\textwidth}
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Methods}},
+                colback=white, 
+                colframe=red!60!black,
+                boxsep=10mm
+            ]
+                \begin{minipage}{\textwidth}
+                    Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd) from the MotionClouds python library.
+
+                    \vspace{0.5cm}
+
+                    \includegraphics[width=\textwidth]{stim-B_theta=0.262.pdf}
+                    \captionof{figure}{Fourier space representation of MotionClouds stimuli. The image is generated by the inverse fourier transform after the application of an random phase.}
+                    \label{fig:stimulus_in_func_space}
+
+                    \vspace{0.5cm}
+                    
+                    \begin{minipage}{\textwidth}
+                        \begin{minipage}{0.45\textwidth}
+                            The classical tuning curve analysis is based on the optimization of the following equations parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...) in order to predicted the activity ($A$) of each neuron in each condition.
+                            \begin{equation*}
+                                \begin{aligned}
+                                    &A_\theta = \kappa_\theta \times (\cos(2 \times (\theta - \theta_0)) - 1) \\
+                                    &A_\phi = \kappa_\phi \times (\cos(\theta - \theta_0) - 1) \\
+                                    &A = \exp{ (A_\theta + A_\phi + \log{R_{amp}}) } + R_0
+                                \end{aligned}
+                            \end{equation*}
+                            Based on our extracted parameters, orientation and direction selective indexs ($OSI$ and $DSI$) are computed as following :
+                            \begin{equation*}
+                                \begin{aligned}
+                                    DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
+                                    OSI &= \frac{R_\text{pref}+R_\text{null}-(R_{\text{orth}+} + R_{\text{orth}-})}{R_\text{pref} + R_\text{null}} \\
+                                    &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
+                                \end{aligned}
+                            \end{equation*}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}{0.45\textwidth}
+                            The decoding method optimizes the weights of a multinomial logistic regression to achieve optimal decoding accuracy on a training set.
+                        \end{minipage}
+                    \end{minipage}
+                \end{minipage}
+            \end{tcolorbox}
+        \end{minipage}
         
     %     \vspace{1.3cm}
         
@@ -215,5 +219,5 @@
     %     \begin{minipage}{0.58\textwidth}
     %         \printbibliography[title=\textbf{\Large{References}}]
     %     \end{minipage}
-    % \end{minipage}
+    \end{minipage}
 \end{document}
