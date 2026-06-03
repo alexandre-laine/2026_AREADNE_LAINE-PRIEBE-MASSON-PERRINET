@@ -54,7 +54,7 @@
 
     \begin{minipage}{\textwidth}
         \begin{minipage}{0.65\textwidth}
-            \textbf{\Huge Population decoding of visual motion direction.} \vspace{1cm} \\
+            \textbf{\Huge Single neuron and population analysis of visual motion direction} \vspace{1cm} \\
             \textbf{\large Alexandre Lainé *¹,  Nicholas J. Priebe ², Guillaume S. Masson ¹, Laurent U. Perrinet ¹} \\
             \large ¹ Institut de Neurosciences de la Timone, UMR 7289, CNRS and Aix-Marseille Université, Marseille, 13005, France.\\ 
             \large ² Section of Neurobiology, School of Biological Sciences, University of Texas at Austin, Austin, TX, USA.\\ 
@@ -76,7 +76,9 @@
 
     \vspace{1.5cm}
     
+    % Introduction + Method + Acknowledgement
     \begin{minipage}{\textwidth}
+        % Introduction
         \begin{minipage}{0.4\textwidth}    
             \begin{tcolorbox}[
                 title=\textbf{\Large{Introduction}}, 
@@ -85,7 +87,7 @@
                 boxsep=10mm
             ]
                 Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods.
-                \includegraphics[width=0.5\textwidth]{1D2D_Aperturepb_Montagnini2007.pdf}
+                \includegraphics[width=0.6\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
             \end{tcolorbox}
             \vspace{1cm}
             \begin{tcolorbox}[
@@ -98,6 +100,7 @@
             \end{tcolorbox}
         \end{minipage}
         \hfill
+        % Methodology
         \begin{minipage}{0.58\textwidth}
             \begin{tcolorbox}[
                 title=\textbf{\Large{Methods}},
@@ -142,12 +145,15 @@
                 \end{minipage}
             \end{tcolorbox}
         \end{minipage}
-        
-        \vspace{1.3cm}
-        
+    \end{minipage}
+
+    \vspace{1.3cm}
+    
+    % First part of the results
+    \begin{minipage}{\textwidth}
         \begin{minipage}{\textwidth}
             \begin{tcolorbox}[
-                title=\textbf{\Large{Results}},
+                title=\textbf{\Large{Results : single neuron analysis}},
                 colback=white, 
                 colframe=green!60!black,
                 boxsep=10mm
@@ -168,20 +174,42 @@
             \end{tcolorbox}
         \end{minipage}
     \end{minipage}
+
+    \vspace{1.3cm}
+
+    % Second part of the results + conclusion
+    \begin{minipage}{\textwidth}
+        \begin{minipage}{0.5\textwidth}
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Results : population decoding}},
+                colback=white, 
+                colframe=green!60!black,
+                boxsep=10mm
+            ]
+                \begin{minipage}{\textwidth}
+                    \includegraphics[width=\textwidth]{Decoding-Ori_Accuracy.png}
+                    \includegraphics[width=\textwidth]{Decoding-Dir_Accuracy.png}
+                    \captionof{figure}{Mean DSI and OSI in population.}
+                \end{minipage}
+            \end{tcolorbox}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\textwidth}
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Discussion}},
+                colback=white, 
+                colframe=blue!60!black,
+                boxsep=10mm
+            ]
+                This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex, its stability accross time and its modulation by the precision level.
+            \end{tcolorbox}
+        \end{minipage}
+    \end{minipage}
     
-    % \vspace{1.3cm}
+    
     
     % \begin{minipage}{\textwidth}
-    %     \begin{minipage}{0.4\textwidth}
-    %         \begin{tcolorbox}[
-    %             title=\textbf{\Large{Discussion}},
-    %             colback=white, 
-    %             colframe=blue!60!black,
-    %             boxsep=10mm
-    %         ]
-    %         This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex, its stability accross time and its modulation by the precision level (fig.~\ref{fig:accuracy_raw} and \ref{fig:tempgen_raw}). The existence of transient and sustained representations may support distinct functional roles for differents cortical layers~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023,Ringach_Shapley_Hawken_2002}. Demixed principal component analysis allows us to reduce the dimension, work in a \textbf{neural state space} and filter the raw activity. This transformation improve the decoding accuracy (fig.~\ref{fig:accuracy_dpca} and \ref{fig:tempgen_dpca}) and improve the decoder's ability to generalise between time steps. Overall, this analysis shows qualitatively the existence of a \textbf{stable representation} of the information wich is modulated by the precision level of the stimulus.
-    %         \end{tcolorbox}
-    %     \end{minipage}
+    %     
     %     \hfill
     %     \begin{minipage}{0.58\textwidth}
     %         \printbibliography[title=\textbf{\Large{References}}]
