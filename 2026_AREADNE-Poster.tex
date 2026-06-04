@@ -54,7 +54,7 @@
 
     \begin{minipage}{\textwidth}
         \begin{minipage}{0.65\textwidth}
-            \textbf{\Huge Single neuron and population analysis of visual motion direction} \vspace{1cm} \\
+            \textbf{\Huge Single neuron and population analysis of visual \\ motion direction : effect of uncertaincy.} \vspace{1cm} \\
             \textbf{\large Alexandre Lainé *¹,  Nicholas J. Priebe ², Guillaume S. Masson ¹, Laurent U. Perrinet ¹} \\
             \large ¹ Institut de Neurosciences de la Timone, UMR 7289, CNRS and Aix-Marseille Université, Marseille, 13005, France.\\ 
             \large ² Section of Neurobiology, School of Biological Sciences, University of Texas at Austin, Austin, TX, USA.\\ 
@@ -82,22 +82,27 @@
         \begin{minipage}{0.4\textwidth}    
             \begin{tcolorbox}[
                 title=\textbf{\Large{Introduction}}, 
-                colframe=blue!60!black!,
+                colframe=blue!60!white!,
                 colback=white, 
                 boxsep=10mm
             ]
-                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods.
-                \includegraphics[width=0.6\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
+                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
+
+                \includegraphics[width=0.485\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
+                \hfill
+                \includegraphics[width=0.505\textwidth]{two_subpopulation_cats.png}
+                \captionof{figure}{\textbf{A.} The aperture problem : information about motion is ambiguous when it is observed through a small aperture. \textbf{B.} Moving stimuli carrying mostly 2D (central spot, top) or 1D (very long line, bottom) information. \textbf{C.} From 1D to 2D, two subpopulation in cat area 17. (A and B adapted from A. Montagnini et al., Journal of Physiology, 2007; C adapted from H. Ladret et al., Nature Comm. Bio., 2023)}
+                \label{fig:aperture_pb}
             \end{tcolorbox}
-            \vspace{1cm}
-            \begin{tcolorbox}[
-                title=\textbf{\Large{Acknowledgements}}, 
-                colframe=gray!60!black!,
-                colback=white, 
-                boxsep=10mm
-            ]
-                This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L.
-            \end{tcolorbox}
+            % \vspace{0.2cm}
+            % \begin{tcolorbox}[
+            %     title=\textbf{\large{Acknowledgements}}, 
+            %     colframe=gray!60!white!,
+            %     colback=white, 
+            %     boxsep=10mm
+            % ]
+            %     \tiny This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L.
+            % \end{tcolorbox}
         \end{minipage}
         \hfill
         % Methodology
@@ -105,15 +110,16 @@
             \begin{tcolorbox}[
                 title=\textbf{\Large{Methods}},
                 colback=white, 
-                colframe=red!60!black,
+                colframe=red!60!white,
                 boxsep=10mm
             ]
                 \begin{minipage}{\textwidth}
                     Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd) from the MotionClouds python library.
-                    \vspace{0.5cm}
-                    \includegraphics[width=\textwidth]{stim-B_theta=0.262.pdf}
-                    \captionof{figure}{Fourier space representation of MotionClouds stimuli. The image is generated by the inverse fourier transform after the application of an random phase.}
-                    \label{fig:stimulus_in_func_space}
+                    \begin{center}
+                        \includegraphics[width=\textwidth]{stim.pdf}
+                        \captionof{figure}{Fourier space representation of MotionClouds stimuli. The image is generated by the inverse fourier transform of the envelop after the application of a random phase.}
+                        \label{fig:stimulus_in_func_space}
+                    \end{center}
                     \vspace{0.5cm}
                     \begin{minipage}{\textwidth}
                         \begin{minipage}{0.48\textwidth}
@@ -155,7 +161,7 @@
             \begin{tcolorbox}[
                 title=\textbf{\Large{Results : single neuron analysis}},
                 colback=white, 
-                colframe=green!60!black,
+                colframe=green!85!black!85,
                 boxsep=10mm
             ]
                 \begin{minipage}{0.30\textwidth}
@@ -183,7 +189,7 @@
             \begin{tcolorbox}[
                 title=\textbf{\Large{Results : population decoding}},
                 colback=white, 
-                colframe=green!60!black,
+                colframe=green!85!black!85,
                 boxsep=10mm
             ]
                 \begin{minipage}{\textwidth}
@@ -198,7 +204,7 @@
             \begin{tcolorbox}[
                 title=\textbf{\Large{Discussion}},
                 colback=white, 
-                colframe=blue!60!black,
+                colframe=blue!60!white,
                 boxsep=10mm
             ]
                 This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex, its stability accross time and its modulation by the precision level.
