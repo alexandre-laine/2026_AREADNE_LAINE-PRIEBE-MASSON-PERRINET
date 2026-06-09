@@ -86,7 +86,7 @@
                 colback=white, 
                 boxsep=10mm
             ]
-                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
+                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalistic stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
 
                 \includegraphics[width=0.485\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
                 \hfill
@@ -123,23 +123,19 @@
                     \vspace{0.5cm}
                     \begin{minipage}{\textwidth}
                         \begin{minipage}{0.40\textwidth}
-                            Fitting in the Fourier space is based on a 2D functionnal space ($f_r$; $f_\theta$) describe as follow :
+                            The 2D functionnal space used is describe as follow ($f_r$; $f_\theta$). The idea is to find the best mask in order to predict well the neuronal activity induced by each stimuli.
                             \begin{equation*}
                                 f_r = e^{-\frac{1}{2} \times \log{\frac{sf - sf_0}{B_{sf}}}} \: ; \:
                                 f_\theta = e^{\frac{\cos{2(\theta - \theta_0)}}{4B_\theta^2}}
                             \end{equation*}
-                            From this functionnal space, the tuning curve model is defined by the following equations parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...) in order to predicted the activity ($A$) of each neuron in each condition. 
+                            The tuning curve model is defined by the following equations in order to predicted the activity ($A$) of each neuron in each condition. Orientation and direction selective indexs ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
                             \begin{equation*}
                                 \begin{aligned}
                                     &A_\theta = \kappa_\theta \times (\cos(2 \times (\theta - \theta_0)) - 1) \\
                                     &A_\phi = \kappa_\phi \times (\cos(\theta - \theta_0) - 1) \\
-                                    &A = \exp{ (A_\theta + A_\phi + \log{R_{amp}}) } + R_0
+                                    &A = e^{A_\theta + A_\phi + \log{R_{amp}}} + R_0
                                 \end{aligned}
                             \end{equation*}
-                        \end{minipage}
-                        \hfill
-                        \begin{minipage}{0.58\textwidth}
-                            Based on our extracted parameters, orientation and direction selective indexs ($OSI$ and $DSI$) are computed. % as following :
                             % \begin{equation*}
                             %     \begin{aligned}
                             %         DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
@@ -147,7 +143,9 @@
                             %         &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
                             %     \end{aligned}
                             % \end{equation*}
-
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}{0.58\textwidth}
                             Decoding method based on Jazayeri and Movshon (2006). The likelihood function of the stimulus direction is equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
                             \begin{equation*}
                                 \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
@@ -192,7 +190,7 @@
 
     % Second part of the results + conclusion
     \begin{minipage}{\textwidth}
-        \begin{minipage}{0.5\textwidth}
+        \begin{minipage}{0.4\textwidth}
             \begin{tcolorbox}[
                 title=\textbf{\Large{Results : population decoding}},
                 colback=white, 
@@ -206,25 +204,22 @@
             \end{tcolorbox}
         \end{minipage}
         \hfill
-        \begin{minipage}{0.48\textwidth}
+        \begin{minipage}{0.58\textwidth}
             \begin{tcolorbox}[
                 title=\textbf{\Large{Discussion}},
                 colback=white, 
                 colframe=blue!60!white,
                 boxsep=10mm
             ]
-                This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex, its stability accross time and its modulation by the precision level.
+                The encoding approach This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex.
             \end{tcolorbox}
         \end{minipage}
     \end{minipage}
-    
-    
-    
-    % \begin{minipage}{\textwidth}
-    %     
-    %     \hfill
-    %     \begin{minipage}{0.58\textwidth}
-    %         \printbibliography[title=\textbf{\Large{References}}]
-    %     \end{minipage}
-    % \end{minipage}
+    \begin{minipage}{\textwidth}
+        
+        \hfill
+        \begin{minipage}{0.58\textwidth}
+            \printbibliography[title=\textbf{\Large{References}}]
+        \end{minipage}
+    \end{minipage}
 \end{document}
