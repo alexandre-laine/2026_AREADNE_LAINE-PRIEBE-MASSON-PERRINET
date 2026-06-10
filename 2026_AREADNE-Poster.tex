@@ -84,25 +84,25 @@
                 title=\textbf{\Large{Introduction}}, 
                 colframe=blue!60!white!,
                 colback=white, 
-                boxsep=10mm
+                boxsep=5mm
             ]
-                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
+                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
 
                 \includegraphics[width=0.485\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
                 \hfill
                 \includegraphics[width=0.505\textwidth]{two_subpopulation_cats.png}
-                \captionof{figure}{\textbf{A.} The aperture problem : information about motion is ambiguous when it is observed through a small aperture. \textbf{B.} Moving stimuli carrying mostly 2D (central spot, right) or 1D (very long line, left) information. \textbf{C.} From 1D to 2D, two subpopulation in cat area 17. (A and B adapted from A. Montagnini et al., Journal of Physiology, 2007; C adapted from H. Ladret et al., Nature Comm. Bio., 2023)}
+                \captionof{figure}{\textbf{A.} The aperture problem : information about motion is ambiguous when it is observed through a small aperture. \textbf{B.} Moving stimuli carrying mostly 2D (central spot, right) or 1D (very long line, left) information. \textbf{C.} From 1D to 2D, two subpopulation in cat area 17. (A and B adapted from \cite{Montagnini_Mamassian_Perrinet_Castet_Masson_2007}; C adapted from \cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023})}
                 \label{fig:aperture_pb}
             \end{tcolorbox}
-            % \vspace{0.2cm}
-            % \begin{tcolorbox}[
-            %     title=\textbf{\large{Acknowledgements}}, 
-            %     colframe=gray!60!white!,
-            %     colback=white, 
-            %     boxsep=10mm
-            % ]
-            %     \tiny This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L.
-            % \end{tcolorbox}
+            \vspace{0.2cm}
+            \begin{tcolorbox}[
+                title=\textbf{Acknowledgement},
+                colframe=gray!60!white!,
+                colback=white, 
+                boxsep=5mm
+            ]
+                \small This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L. % TODO ajouter quelque chose pour le financement de Matthieu.
+            \end{tcolorbox}
         \end{minipage}
         \hfill
         % Methodology
@@ -111,7 +111,7 @@
                 title=\textbf{\Large{Methods}},
                 colback=white, 
                 colframe=red!60!white,
-                boxsep=10mm
+                boxsep=5mm
             ]
                 \begin{minipage}{\textwidth}
                     Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd) from the MotionClouds python library.
@@ -123,12 +123,14 @@
                     \vspace{0.5cm}
                     \begin{minipage}{\textwidth}
                         \begin{minipage}{0.40\textwidth}
-                            The 2D ($f_r$; $f_\theta$) functional space used is described as follows. The idea is to find the best template in Fourier space that predicts the neuronal activity induced by each stimuli.
+                            The 2D ($f_r$; $f_\theta$) functional space used is described as follows The idea is to find the best template in Fourier space that predicts the neuronal activity induced by each stimuli.
                             \begin{equation*}
-                                f_r = e^{-\frac{1}{2} \times \log{\frac{sf - sf_0}{B_{sf}}}} \: ; \:
-                                f_\theta = e^{\frac{\cos{2(\theta - \theta_0)}}{4B_\theta^2}}
+                                \begin{aligned}
+                                    f_r &= e^{-\frac{1}{2} \log{\frac{sf - sf_0}{B_{sf}}}} \\
+                                    f_\theta &= e^{\frac{\cos{2(\theta - \theta_0)}}{4B_\theta^2}}
+                                \end{aligned}
                             \end{equation*}
-                            The tuning curve model is defined by the following equations in order to predict the activity ($A$) of each neuron in each condition. Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
+                            The tuning curve model is defined by the following equations in order to predict the activity ($A$) of each neuron in each condition.
                             \begin{equation*}
                                 \begin{aligned}
                                     &A_\theta = \kappa_\theta \times (\cos(2 \times (\theta - \theta_0)) - 1) \\
@@ -136,17 +138,18 @@
                                     &A = e^{A_\theta + A_\phi + \log{R_{amp}}} + R_0
                                 \end{aligned}
                             \end{equation*}
-                            % \begin{equation*}
-                            %     \begin{aligned}
-                            %         DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
-                            %         OSI &= \frac{R_\text{pref}+R_\text{null}-(R_{\text{orth}+} + R_{\text{orth}-})}{R_\text{pref} + R_\text{null}} \\
-                            %         &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
-                            %     \end{aligned}
-                            % \end{equation*}
                         \end{minipage}
                         \hfill
                         \begin{minipage}{0.58\textwidth}
-                            Decoding method based on Jazayeri and Movshon (2006). The likelihood function of the stimulus direction is equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
+                            Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
+                            \begin{equation*}
+                                \begin{aligned}
+                                    DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
+                                    % OSI &= \frac{R_\text{pref}+R_\text{null}-(R_{\text{orth}+} + R_{\text{orth}-})}{R_\text{pref} + R_\text{null}} \\
+                                    % &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
+                                \end{aligned}
+                            \end{equation*}
+                            Decoding method based on \cite{Jazayeri_Movshon_2006} define the likelihood function of the stimulus direction as an equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
                             \begin{equation*}
                                 \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
                             \end{equation*}
@@ -166,21 +169,34 @@
                 title=\textbf{\Large{Results : single neuron analysis}},
                 colback=white, 
                 colframe=green!85!black!75,
-                boxsep=10mm
+                boxsep=5mm
             ]
                 \begin{minipage}{0.50\textwidth}
-                    \includegraphics[width=\textwidth]{fourier_fit_example.pdf}
-                    \includegraphics[width=\textwidth]{fourier_fit_example.pdf}
+                    \begin{minipage}{0.33\textheight}
+                        \includegraphics[width=0.22\textwidth]{part7g19_neuron_5_four.pdf}
+                        \includegraphics[width=0.78\textwidth]{part7g19_neuron-5_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{0.33\textheight}
+                        % \includegraphics[width=0.22\textwidth]{part7g19_neuron_1_four.pdf}
+                        % \includegraphics[width=0.78\textwidth]{part7g19_neuron-1_tc.pdf}
+                        \includegraphics[width=0.22\textwidth]{part4g9_neuron_15_four.pdf}
+                        \includegraphics[width=0.78\textwidth]{part4g9_neuron-15_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{0.33\textheight}
+                        \includegraphics[width=0.22\textwidth]{part2g2_neuron_23_four.pdf}
+                        \includegraphics[width=0.78\textwidth]{part2g2_neuron-23_tc.pdf}
+                    \end{minipage}
+                    \captionof{figure}{Mean DSI and OSI in population.}
                 \end{minipage}
                 \hfill
-                \begin{minipage}{0.24\textwidth}
+                \begin{minipage}{0.3\textwidth}
                     \includegraphics[width=\textwidth]{pooling.pdf}
                     \includegraphics[width=\textwidth]{OSI-DSI.pdf}
                     \captionof{figure}{Mean DSI and OSI in population.}
                 \end{minipage}  
                 \hfill
-                \begin{minipage}{0.24\textwidth}
-                    Coucou
+                \begin{minipage}{0.19\textwidth}
+                    Ici sera présent un text descrivant les points importants de cette partie, ou/et une petite figure ??
                 \end{minipage}
             \end{tcolorbox}
         \end{minipage}
@@ -195,7 +211,7 @@
                 title=\textbf{\Large{Results : population decoding}},
                 colback=white, 
                 colframe=green!85!black!85,
-                boxsep=10mm
+                boxsep=5mm
             ]
                 \begin{minipage}{\textwidth}
                     \includegraphics[width=\textwidth]{DecodingAccuracy.png}
@@ -209,17 +225,19 @@
                 title=\textbf{\Large{Discussion}},
                 colback=white, 
                 colframe=blue!60!white,
-                boxsep=10mm
+                boxsep=5mm
             ]
                 The encoding approach This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex.
             \end{tcolorbox}
-        \end{minipage}
-    \end{minipage}
-    \begin{minipage}{\textwidth}
-        
-        \hfill
-        \begin{minipage}{0.58\textwidth}
-            \printbibliography[title=\textbf{\Large{References}}]
+            \hfill
+            \begin{tcolorbox}[
+                title=\textbf{References},
+                colback=white, 
+                colframe=gray!60!white!,
+                boxsep=5mm
+            ]
+                \printbibliography[heading=none]
+            \end{tcolorbox}
         \end{minipage}
     \end{minipage}
 \end{document}
