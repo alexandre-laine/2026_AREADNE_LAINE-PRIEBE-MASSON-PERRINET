@@ -81,81 +81,101 @@
         % Introduction
         \begin{minipage}{0.4\textwidth}    
             \begin{tcolorbox}[
-                title=\textbf{\Large{Introduction}}, 
+                % title=\textbf{\Large{Introduction}}, 
                 colframe=blue!60!white!,
                 colback=white, 
                 boxsep=5mm
-            ]
-                Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods. \\
-
-                \includegraphics[width=0.485\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
-                \hfill
-                \includegraphics[width=0.505\textwidth]{two_subpopulation_cats.png}
-                \captionof{figure}{\textbf{A.} The aperture problem : information about motion is ambiguous when it is observed through a small aperture. \textbf{B.} Moving stimuli carrying mostly 2D (central spot, right) or 1D (very long line, left) information. \textbf{C.} From 1D to 2D, two subpopulation in cat area 17. (A and B adapted from \cite{Montagnini_Mamassian_Perrinet_Castet_Masson_2007}; C adapted from \cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023})}
-                \label{fig:aperture_pb}
+            ]   
+                \begin{minipage}{\textwidth}
+                    \begin{minipage}{0.5\textwidth}
+                        Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods.
+                        % \captionof{figure}{\textbf{A.} The aperture problem : information about motion is ambiguous when it is observed through a small aperture. \textbf{B.} Moving stimuli carrying mostly 2D (central spot, right) or 1D (very long line, left) information. (adapted from \cite{Montagnini_Mamassian_Perrinet_Castet_Masson_2007}) \textbf{C.} Heterogeneity in natural images. (from \cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023})}
+                        % \label{fig:aperture_pb}
+                    \end{minipage}
+                    \hfill
+                    \begin{minipage}{0.48\textwidth}
+                        \includegraphics[width=\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
+                    \end{minipage}
+                \end{minipage}
+                \vspace{0.5cm}
+                \begin{minipage}{\textwidth}
+                    \includegraphics[width=\textwidth]{Intro-Hugo.png}
+                \end{minipage}
             \end{tcolorbox}
             \vspace{0.2cm}
-            \begin{tcolorbox}[
-                title=\textbf{Acknowledgement},
-                colframe=gray!60!white!,
-                colback=white, 
-                boxsep=5mm
-            ]
-                \small This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L. % TODO ajouter quelque chose pour le financement de Matthieu.
-            \end{tcolorbox}
+            % \begin{tcolorbox}[
+            %     title=\textbf{Acknowledgement},
+            %     colframe=gray!60!white!,
+            %     colback=white, 
+            %     boxsep=5mm
+            % ]
+            %     \small This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L. % TODO ajouter quelque chose pour le financement de Matthieu.
+            % \end{tcolorbox}
         \end{minipage}
         \hfill
         % Methodology
-        \begin{minipage}{0.58\textwidth}
+        \begin{minipage}{0.6\textwidth}
             \begin{tcolorbox}[
-                title=\textbf{\Large{Methods}},
+                % title=\textbf{\Large{Methods}},
                 colback=white, 
                 colframe=red!60!white,
                 boxsep=5mm
-            ]
-                \begin{minipage}{\textwidth}
-                    Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd) from the MotionClouds python library.
-                    \begin{center}
-                        \includegraphics[width=\textwidth]{stim.pdf}
-                        \captionof{figure}{Fourier space representation of the envelope of MotionClouds stimuli. Resulting images (top-left inset) are generated by the inverse Fourier transform of the envelope after the application of a random phase.}
-                        \label{fig:stimulus_in_func_space}
-                    \end{center}
-                    \vspace{0.5cm}
+            ]   
+                \begin{minipage}{0.4\textwidth}
                     \begin{minipage}{\textwidth}
-                        \begin{minipage}{0.40\textwidth}
-                            The 2D ($f_r$; $f_\theta$) functional space used is described as follows The idea is to find the best template in Fourier space that predicts the neuronal activity induced by each stimuli.
-                            \begin{equation*}
-                                \begin{aligned}
-                                    f_r &= e^{-\frac{1}{2} \log{\frac{sf - sf_0}{B_{sf}}}} \\
-                                    f_\theta &= e^{\frac{\cos{2(\theta - \theta_0)}}{4B_\theta^2}}
-                                \end{aligned}
-                            \end{equation*}
-                            The tuning curve model is defined by the following equations in order to predict the activity ($A$) of each neuron in each condition.
-                            \begin{equation*}
-                                \begin{aligned}
-                                    &A_\theta = \kappa_\theta \times (\cos(2 \times (\theta - \theta_0)) - 1) \\
-                                    &A_\phi = \kappa_\phi \times (\cos(\theta - \theta_0) - 1) \\
-                                    &A = e^{A_\theta + A_\phi + \log{R_{amp}}} + R_0
-                                \end{aligned}
-                            \end{equation*}
-                        \end{minipage}
-                        \hfill
-                        \begin{minipage}{0.58\textwidth}
-                            Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
-                            \begin{equation*}
-                                \begin{aligned}
-                                    DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
-                                    % OSI &= \frac{R_\text{pref}+R_\text{null}-(R_{\text{orth}+} + R_{\text{orth}-})}{R_\text{pref} + R_\text{null}} \\
-                                    % &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
-                                \end{aligned}
-                            \end{equation*}
-                            Decoding method based on \cite{Jazayeri_Movshon_2006} define the likelihood function of the stimulus direction as an equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
-                            \begin{equation*}
-                                \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
-                            \end{equation*}
-                        \end{minipage}
+                        Equations enveloppe fourier + functionnal space ? et text
+                    \end{minipage}
+                    \vfill
+                    \begin{minipage}{\textwidth}
+                        \includegraphics[width=\textwidth]{overview_of_enveloppe.pdf}
                     \end{minipage}
                 \end{minipage}
+                \begin{minipage}{0.6\textwidth}
+                    \includegraphics[width=\textwidth]{overview_of_stimuli.pdf}
+                \end{minipage}
+                % \begin{minipage}{\textwidth}
+                %     Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd) from the MotionClouds python library.
+                %     \begin{center}
+                %         \includegraphics[width=\textwidth]{stim.pdf}
+                %         \captionof{figure}{Fourier space representation of the envelope of MotionClouds stimuli. Resulting images (top-left inset) are generated by the inverse Fourier transform of the envelope after the application of a random phase.}
+                %         \label{fig:stimulus_in_func_space}
+                %     \end{center}
+                %     \vspace{0.5cm}
+                %     \begin{minipage}{\textwidth}
+                %         \begin{minipage}{0.40\textwidth}
+                %             The 2D ($f_r$; $f_\theta$) functional space used is described as follows The idea is to find the best template in Fourier space that predicts the neuronal activity induced by each stimuli.
+                %             \begin{equation*}
+                %                 \begin{aligned}
+                %                     f_r &= e^{-\frac{1}{2} \log{\frac{sf - sf_0}{B_{sf}}}} \\
+                %                     f_\theta &= e^{\frac{\cos{2(\theta - \theta_0)}}{4B_\theta^2}}
+                %                 \end{aligned}
+                %             \end{equation*}
+                %             The tuning curve model is defined by the following equations in order to predict the activity ($A$) of each neuron in each condition.
+                %             \begin{equation*}
+                %                 \begin{aligned}
+                %                     &A_\theta = \kappa_\theta \times (\cos(2 \times (\theta - \theta_0)) - 1) \\
+                %                     &A_\phi = \kappa_\phi \times (\cos(\theta - \theta_0) - 1) \\
+                %                     &A = e^{A_\theta + A_\phi + \log{R_{amp}}} + R_0
+                %                 \end{aligned}
+                %             \end{equation*}
+                %         \end{minipage}
+                %         \hfill
+                %         \begin{minipage}{0.58\textwidth}
+                %             Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
+                %             \begin{equation*}
+                %                 \begin{aligned}
+                %                     DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
+                %                     % OSI &= \frac{R_\text{pref}+R_\text{null}-(R_{\text{orth}+} + R_{\text{orth}-})}{R_\text{pref} + R_\text{null}} \\
+                %                     % &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
+                %                 \end{aligned}
+                %             \end{equation*}
+                %             Decoding method based on \cite{Jazayeri_Movshon_2006} define the likelihood function of the stimulus direction as an equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
+                %             \begin{equation*}
+                %                 \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
+                %             \end{equation*}
+                %         \end{minipage}
+                %     \end{minipage}
+                % \end{minipage}
             \end{tcolorbox}
         \end{minipage}
     \end{minipage}
