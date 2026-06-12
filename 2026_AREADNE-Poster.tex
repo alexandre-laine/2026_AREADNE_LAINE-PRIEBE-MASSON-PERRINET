@@ -13,7 +13,7 @@
 \usepackage{multicol} % multiples colonnes
 \usepackage{float} % float environnement
 \usepackage[svgnames]{xcolor} % plus de couleurs
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 
 \usepackage{graphicx} % add figures and images
 \usepackage{caption}
@@ -76,27 +76,42 @@
 
     \vspace{1.5cm}
     
-    % Introduction + Method + Acknowledgement
+    % Introduction + Method
     \begin{minipage}{\textwidth}
         % Introduction
-        \begin{minipage}{0.4\textwidth}    
+        \begin{minipage}{0.42\textwidth}    
+            % \begin{tcolorbox}[
+            %     title=\textbf{\Large{Introduction}}, 
+            %     colframe=blue!60!white!,
+            %     colback=white, 
+            %     boxsep=5mm
+            % ]   
             \begin{tcolorbox}[
-                % title=\textbf{\Large{Introduction}}, 
-                colframe=blue!60!white!,
-                colback=white, 
-                boxsep=5mm
-            ]   
+                enhanced,
+                colframe=blue!60!white,
+                colback=white,
+                boxsep=5mm,
+                arc=5mm,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large Introduction}
+            ]
+                \hfill
                 \begin{minipage}{\textwidth}
                     \begin{minipage}{0.5\textwidth}
-                        Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty using classical and decoding methods.
-                        % \captionof{figure}{\textbf{A.} The aperture problem : information about motion is ambiguous when it is observed through a small aperture. \textbf{B.} Moving stimuli carrying mostly 2D (central spot, right) or 1D (very long line, left) information. (adapted from \cite{Montagnini_Mamassian_Perrinet_Castet_Masson_2007}) \textbf{C.} Heterogeneity in natural images. (from \cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023})}
-                        % \label{fig:aperture_pb}
+                        Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty.
                     \end{minipage}
                     \hfill
-                    \begin{minipage}{0.48\textwidth}
+                    \begin{minipage}{0.47\textwidth}
                         \includegraphics[width=\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
                     \end{minipage}
                 \end{minipage}
+
                 \vspace{0.5cm}
                 \begin{minipage}{\textwidth}
                     \includegraphics[width=\textwidth]{Intro-Hugo.png}
@@ -114,18 +129,28 @@
         \end{minipage}
         \hfill
         % Methodology
-        \begin{minipage}{0.6\textwidth}
+        \begin{minipage}{0.57\textwidth}
             \begin{tcolorbox}[
-                % title=\textbf{\Large{Methods}},
-                colback=white, 
+                enhanced,
                 colframe=red!60!white,
-                boxsep=5mm
-            ]   
+                colback=white,
+                arc=3mm,
+                boxsep=5mm,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large Method}
+            ]
                 \begin{minipage}{0.4\textwidth}
                     \begin{minipage}{\textwidth}
-                        Equations enveloppe fourier + functionnal space ? et text
+                        Each stimuli (A, B, C, D) are generated by the inverse Fourier transform of the envelope (A', B', C', D') after the application of a random phase. Using the MotionClouds library~\cite{Leon_Vanzetta_Masson_Perrinet_2012} allow us to control orientation and spatial frequency bandwidth ($B_\theta$, $B_{sf}$).
                     \end{minipage}
-                    \vfill
+
+                    \vspace{0.5cm}
                     \begin{minipage}{\textwidth}
                         \includegraphics[width=\textwidth]{overview_of_enveloppe.pdf}
                     \end{minipage}
