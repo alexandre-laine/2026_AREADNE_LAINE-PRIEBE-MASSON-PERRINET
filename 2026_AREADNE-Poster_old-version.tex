@@ -94,6 +94,7 @@
                 colback=white,
                 boxsep=5mm,
                 arc=5mm,
+                boxrule=3pt,
                 attach boxed title to top left={xshift=8mm,yshift=-3mm},
                 boxed title style={
                     colback=white,
@@ -138,6 +139,7 @@
                 colback=white,
                 arc=3mm,
                 boxsep=5mm,
+                boxrule=3pt,
                 attach boxed title to top left={xshift=8mm,yshift=-3mm},
                 boxed title style={
                     colback=white,
@@ -161,7 +163,13 @@
                             \end{aligned}
                         \end{equation*}
 
-                        Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
+                        Decoding method based on \cite{Jazayeri_Movshon_2006} define the likelihood function of the stimulus direction as an equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation.
+                        % If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
+                        \begin{equation*}
+                            \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
+                        \end{equation*}
+
+                        % Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
                         % \begin{equation*}
                         %     \begin{aligned}
                         %         DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
@@ -185,10 +193,7 @@
                 %                     % &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
                 %                 \end{aligned}
                 %             \end{equation*}
-                %             Decoding method based on \cite{Jazayeri_Movshon_2006} define the likelihood function of the stimulus direction as an equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
-                %             \begin{equation*}
-                %                 \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
-                %             \end{equation*}
+                
                 %         \end{minipage}
                 %     \end{minipage}
                 % \end{minipage}
@@ -202,10 +207,20 @@
     \begin{minipage}{\textwidth}
         \begin{minipage}{\textwidth}
             \begin{tcolorbox}[
-                title=\textbf{\Large{Results : single neuron analysis}},
-                colback=white, 
+                enhanced,
                 colframe=green!85!black!75,
-                boxsep=5mm
+                colback=white,
+                arc=3mm,
+                boxsep=5mm,
+                boxrule=3pt,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large{Results : single neuron analysis}}
             ]
                 \begin{minipage}{0.50\textwidth}
                     \begin{minipage}{0.33\textheight}
