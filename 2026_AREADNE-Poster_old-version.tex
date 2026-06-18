@@ -26,9 +26,9 @@
     doi=false,
     url=false,
     isbn=false,
-    eprint=false,
+    eprint=false, 
     giveninits=true,
-    maxbibnames=3
+    maxbibnames=1 
 ]{biblatex} % bibliographie
 \AtEveryBibitem{\clearlist{language}}
 \addbibresource{biblio.bib}
@@ -37,9 +37,9 @@
 %% Reformatage du fichier
 \usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
 \setlength{\paperwidth}{90.cm}	% Poster width in cm
-\setlength{\paperheight}{100.cm}	% Poster height in cm
-\setlength{\textwidth}{86.cm}
-\setlength{\textheight}{86.cm}
+\setlength{\paperheight}{90.cm}	% Poster height in cm
+\setlength{\textwidth}{87.cm}
+\setlength{\textheight}{87.cm}
 
 %% Reformatage des tailles de titre
 \titleformat*{\section}{\LARGE\bfseries}
@@ -54,7 +54,7 @@
 
 \begin{document}
     \begin{minipage}{\textwidth}
-        \begin{minipage}{0.63\textwidth}
+        \begin{minipage}{0.62\textwidth}
             \textbf{\Huge Single neuron and population analysis of visual motion direction : effect of uncertaincy.} \vspace{1cm} \\
             \textbf{\large Alexandre Lainé *¹,  Nicholas J. Priebe ², Guillaume S. Masson ¹, Laurent U. Perrinet ¹} \\
             \large ¹ Institut de Neurosciences de la Timone, UMR 7289, CNRS and Aix-Marseille Université, Marseille, 13005, France.\\ 
@@ -74,16 +74,10 @@
             \end{minipage}
         \end{minipage}
     \end{minipage}
+    \vspace{0.3cm}
 
-    \vspace{1.5cm}
     \begin{minipage}{\textwidth}
-        \begin{minipage}{0.395\textwidth}    
-            % \begin{tcolorbox}[
-            %     title=\textbf{\Large{Introduction}}, 
-            %     colframe=blue!60!white!,
-            %     colback=white, 
-            %     boxsep=5mm
-            % ]   
+        \begin{minipage}{0.43\textwidth}      
             \begin{tcolorbox}[
                 enhanced,
                 colframe=blue!60!white,
@@ -100,10 +94,11 @@
                 coltitle=black,
                 title=\textbf{\Large Introduction}
             ]
-                \hfill
                 \begin{minipage}{\textwidth}
-                    \begin{minipage}{0.5\textwidth}
+                    \begin{minipage}{0.53\textwidth}
                         Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty.
+
+                        \captionof{figure}{\textbf{A.} The aperture problem. \textbf{B.} 1D vs 2D visual information. \textbf{C.} Orientation distribution of natural patches. (\textbf{A} and \textbf{B} are adapted from~\cite{Montagnini_Mamassian_Perrinet_Castet_Masson_2007})}
                     \end{minipage}
                     \hfill
                     \begin{minipage}{0.45\textwidth}
@@ -116,19 +111,9 @@
                     \includegraphics[width=\textwidth]{Intro-Hugo.png}
                 \end{minipage}
             \end{tcolorbox}
-            \vspace{0.2cm}
-            % \begin{tcolorbox}[
-            %     title=\textbf{Acknowledgement},
-            %     colframe=gray!60!white!,
-            %     colback=white, 
-            %     boxsep=5mm
-            % ]
-            %     \small This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L. % TODO ajouter quelque chose pour le financement de Matthieu.
-            % \end{tcolorbox}
         \end{minipage}
         \hfill
-        % Methodology
-        \begin{minipage}{0.59\textwidth}
+        \begin{minipage}{0.56\textwidth}
             \begin{tcolorbox}[
                 enhanced,
                 colframe=red!60!white,
@@ -145,7 +130,7 @@
                 coltitle=black,
                 title=\textbf{\Large Method}
             ]
-                \begin{minipage}{0.43\textwidth}
+                \begin{minipage}{0.41\textwidth}
                     \begin{minipage}{\textwidth}
                         Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd).
                         One MotionCloud~\cite{Leon_Vanzetta_Masson_Perrinet_2012} is obtained by assigning a random phase to its corresponding Fourier envelope and computing the inverse Fourier transform. \\
@@ -160,103 +145,121 @@
                     \end{minipage}
                 \end{minipage}
                 \hfill
-                \begin{minipage}{0.55\textwidth}
+                \begin{minipage}{0.57\textwidth}
                     \includegraphics[width=\textwidth]{overview_of_stimuli.pdf}
+                    \captionof{figure}{MotionClouds examples from sinusoidal grating (\textbf{C}) to pink noise (\textbf{B}), 2D noise (\textbf{A})and 1D noise (\textbf{D}).}
                 \end{minipage}
             \end{tcolorbox}
         \end{minipage}
     \end{minipage}
+    \vspace{1.cm}
 
-    \vfill 
-    
-    \begin{minipage}{0.395\textwidth}
-        \begin{tcolorbox}[
-            enhanced,
-            colframe=green!85!black!75,
-            colback=white,
-            arc=3mm,
-            boxsep=5mm,
-            boxrule=3pt,
-            attach boxed title to top left={xshift=8mm,yshift=-3mm},
-            boxed title style={
+    \begin{minipage}{\textwidth}
+        \begin{minipage}{0.345\textwidth}
+            \begin{tcolorbox}[
+                enhanced,
+                colframe=green!85!black!75,
                 colback=white,
-                colframe=white,
-                sharp corners
-            },
-            coltitle=black,
-            title=\textbf{\Large{Results : single neuron analysis}}
-        ]
-            \begin{minipage}{\textwidth}
+                arc=3mm,
+                boxsep=5mm,
+                boxrule=3pt,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large{Results : single neuron analysis}}
+            ]
                 \begin{minipage}{\textwidth}
-                    \includegraphics[width=\textwidth]{part7g19_neuron-5_tc.pdf}
-                \end{minipage}
-                \begin{minipage}{\textwidth}
-                    \includegraphics[width=\textwidth]{part4g9_neuron-15_tc.pdf}
-                \end{minipage}
-                \begin{minipage}{\textwidth}
-                    \includegraphics[width=\textwidth]{part2g2_neuron-23_tc.pdf}
-                \end{minipage}
-                \begin{minipage}{\textwidth}
-                    \includegraphics[width=0.5\textwidth]{pooling.pdf}
-                    \includegraphics[width=0.5\textwidth]{OSI-DSI.pdf}
+                    \begin{minipage}{\textwidth}
+                        \includegraphics[width=\textwidth]{part7g19_neuron-5_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{\textwidth}
+                        \includegraphics[width=\textwidth]{part4g9_neuron-15_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{\textwidth}
+                        \includegraphics[width=\textwidth]{part2g2_neuron-23_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{\textwidth}
+                        \includegraphics[width=0.5\textwidth]{pooling.pdf}
+                        \includegraphics[width=0.5\textwidth]{OSI-DSI.pdf}
+                    \end{minipage} 
                 \end{minipage} 
-            \end{minipage} 
-        \end{tcolorbox}
+            \end{tcolorbox}
+            \vfill
+            \begin{tcolorbox}[
+                enhanced,
+                colframe=gray!60!white,
+                colback=white,
+                arc=3mm,
+                boxsep=5mm,
+                boxrule=3pt,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\large{References}}
+            ]
+                \printbibliography[heading=none]
+            \end{tcolorbox}
+        \end{minipage}
+        \hfill 
+        \begin{minipage}{0.645\textwidth}
+            \begin{tcolorbox}[ 
+                enhanced,
+                colframe=green!85!black!75, 
+                colback=white,
+                arc=3mm,
+                boxsep=5mm,
+                boxrule=3pt,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm}, 
+                boxed title style={
+                    colback=white, 
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large{Results : population decoding}}
+            ]  
+                \begin{minipage}{0.98\textwidth} % Decoding 
+                    \includegraphics[width=0.33\textwidth]{part2_g2_theta_B_theta_Accuracy.pdf}
+                    \includegraphics[width=0.33\textwidth]{part2_g2_ori_B_theta_Accuracy.pdf}
+                    \includegraphics[width=0.33\textwidth]{part2_g2_B_theta_Mean_Accuracy.pdf}
+                \end{minipage}
+
+                \begin{minipage}{0.98\textwidth} % Decoding 
+                    \includegraphics[width=0.33\textwidth]{part2_g2_theta_B_sf_Accuracy.pdf}
+                    \includegraphics[width=0.33\textwidth]{part2_g2_ori_B_sf_Accuracy.pdf}
+                    \includegraphics[width=0.33\textwidth]{part2_g2_B_sf_Mean_Accuracy.pdf}
+                \end{minipage}
+                
+                \captionof{figure}{Direction ($\phi$) and orientation ($\theta$) decoding for different orientation and spatial frequency bandwidths ($B_\theta$, $B_{sf}$).}
+            \end{tcolorbox}
+            \vfill
+            \begin{tcolorbox}[
+                enhanced,
+                colframe=blue!60!white,
+                colback=white,
+                arc=3mm,
+                boxsep=5mm,
+                boxrule=3pt,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large{Perspectives}}
+            ]
+                Coupling decoding method and MotionClouds allow us to study how V1 population responses encode orientation and direction information by tiltrating the precision level in orientation and spatial frequency domains.
+                In this context, MotionPlaids could offer an interesting next step to study how the brain combines oriented motion components, helping to disentangle orientation and direction contributions to population actiivty and to better understand how motion ambiguity is resolved in V1.
+            \end{tcolorbox}
+        \end{minipage}    
     \end{minipage}
-    \hfill
-    \begin{minipage}{0.59\textwidth}
-        \begin{tcolorbox}[ 
-            enhanced,
-            colframe=green!85!black!75,
-            colback=white,
-            arc=3mm,
-            boxsep=5mm,
-            boxrule=3pt,
-            attach boxed title to top left={xshift=8mm,yshift=-3mm},
-            boxed title style={
-                colback=white, 
-                colframe=white,
-                sharp corners
-            },
-            coltitle=black,
-            title=\textbf{\Large{Results : population decoding}}
-        ]  
-            \begin{minipage}{\textwidth} % Decoding 
-                \includegraphics[width=0.5\textwidth]{part2_g2_theta_B_theta_Accuracy.pdf}
-                % \includegraphics[width=0.5\textwidth]{part2_g2_theta_B_theta_Accuracy_box.pdf}
-            % \end{minipage}
-            % \begin{minipage}{\textwidth}
-                 \includegraphics[width=0.5\textwidth]{part2_g2_ori_B_theta_Accuracy.pdf}
-                % \includegraphics[width=0.5\textwidth]{part2_g2_ori_B_theta_Accuracy_box.pdf}
-            \end{minipage}
-            % \begin{minipage}{\textwidth} % Decoding 
-            %     \includegraphics[width=0.5\textwidth]{part2_g2_theta_B_sf_Accuracy.pdf}
-            %     \includegraphics[width=0.5\textwidth]{part2_g2_theta_B_sf_Accuracy_box.pdf}
-            % \end{minipage} 
-            % \begin{minipage}{\textwidth}
-            %      \includegraphics[width=0.5\textwidth]{part2_g2_ori_B_sf_Accuracy.pdf}
-            %     \includegraphics[width=0.5\textwidth]{part2_g2_ori_B_sf_Accuracy_box.pdf}
-            % \end{minipage}
-            \captionof{figure}{Direction ($\phi$) and orientation ($\theta$) decoding for different orientation and spatial frequency bandwidths ($B_\theta$, $B_{sf}$). From top to bottom: decoding of $\theta$ across multiple $B_\theta$, decoding of $\phi$ across multiple $B_\theta$, decoding of $\theta$ across multiple $B_{sf}$, and decoding of $\phi$ across multiple $B_{sf}$. Each row contains a line plot and its corresponding boxplot.}
-        \end{tcolorbox}
-    \end{minipage}
-    \hfill
-    \begin{tcolorbox}[
-        enhanced,
-        colframe=gray!60!white,
-        colback=white,
-        arc=3mm,
-        boxsep=5mm,
-        boxrule=3pt,
-        attach boxed title to top left={xshift=8mm,yshift=-3mm},
-        boxed title style={
-            colback=white,
-            colframe=white,
-            sharp corners
-        },
-        coltitle=black,
-        title=\textbf{\Large{References}}
-    ]
-        \printbibliography[heading=none]
-    \end{tcolorbox}
 \end{document}
