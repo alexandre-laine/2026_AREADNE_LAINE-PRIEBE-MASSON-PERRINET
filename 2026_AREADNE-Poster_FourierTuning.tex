@@ -1,0 +1,290 @@
+\documentclass[portrait]{a0poster}
+\usepackage[T1]{fontenc}
+
+\usepackage[english]{babel} % langue utilisée
+
+% \usepackage{lmodern} % For times font (times)
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[scaled]{helvet}
+
+\usepackage{titlesec} % pour de plus beaux titres ?
+\usepackage{amsmath} %,amsfonts,amsmath,amssymb,amsthm % symboles mathématiques
+
+\usepackage{multicol} % multiples colonnes
+\usepackage{float} % float environnement
+\usepackage[svgnames]{xcolor} % plus de couleurs
+\usepackage[most]{tcolorbox}
+
+\usepackage{graphicx} % add figures and images
+\usepackage{caption}
+\graphicspath{{./fig/} } % image and figure path
+\usepackage{tikz} % pour les graphiques
+\usepackage{exscale} % ordre de mesures...
+
+\usepackage[
+    sorting=none,
+    doi=false,
+    url=false,
+    isbn=false
+]{biblatex} % bibliographie
+\AtEveryBibitem{\clearlist{language}}
+\addbibresource{biblio.bib}
+\def\bibfont{\small}
+
+%% Reformatage du fichier
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\setlength{\paperwidth}{84.1cm}	% Poster width in cm
+\setlength{\paperheight}{118.9cm}	% Poster height in cm
+\setlength{\textwidth}{80.1cm}
+\setlength{\textheight}{114.9cm}
+
+%% Reformatage des tailles de titre
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %         Début Document            %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+    \vspace{1cm}
+
+    \begin{minipage}{\textwidth}
+        \begin{minipage}{0.65\textwidth}
+            \textbf{\Huge Single neuron and population analysis of visual \\ motion direction : effect of uncertaincy.} \vspace{1cm} \\
+            \textbf{\large Alexandre Lainé *¹,  Nicholas J. Priebe ², Guillaume S. Masson ¹, Laurent U. Perrinet ¹} \\
+            \large ¹ Institut de Neurosciences de la Timone, UMR 7289, CNRS and Aix-Marseille Université, Marseille, 13005, France.\\ 
+            \large ² Section of Neurobiology, School of Biological Sciences, University of Texas at Austin, Austin, TX, USA.\\ 
+            \large * Correspondence : alexandre.laine@univ-amu.fr
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.35\textwidth}
+            \begin{minipage}{0.48\textwidth}
+                \includegraphics[width=1\textwidth]{LogoAmidex.png} \\
+                \includegraphics[width=0.35\textwidth]{LogoAREADNE.jpg}
+                \includegraphics[width=0.6\textwidth]{LogoAMU.pdf}
+            \end{minipage}
+            \hfill
+            \begin{minipage}{0.48\textwidth}
+                \includegraphics[width=1\textwidth]{LogoINT.pdf}
+            \end{minipage}
+        \end{minipage}
+    \end{minipage}
+
+    \vspace{1.5cm}
+    
+    % Introduction + Method
+    \begin{minipage}{\textwidth}
+        % Introduction
+        \begin{minipage}{0.42\textwidth}    
+            % \begin{tcolorbox}[
+            %     title=\textbf{\Large{Introduction}}, 
+            %     colframe=blue!60!white!,
+            %     colback=white, 
+            %     boxsep=5mm
+            % ]   
+            \begin{tcolorbox}[
+                enhanced,
+                colframe=blue!60!white,
+                colback=white,
+                boxsep=5mm,
+                arc=5mm,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large Introduction}
+            ]
+                \hfill
+                \begin{minipage}{\textwidth}
+                    \begin{minipage}{0.5\textwidth}
+                        Studying the \textbf{internal representation} of natural features in the primary visual cortex (V1), like direction or spatial frequency, is crucial to understand how we perceive the external world. Research on 2D motion direction in \textbf{non-human primates} in particular when displaying  \textbf{naturalist-like stimuli} like MotionClouds reveals substantial diversity and multiple mechanisms within the neuronal population~\cite{Ladret_Cortes_Ikan_Chavane_Casanova_Perrinet_2023}. The aim of this project is to examine how a large population of V1 neurons encodes stimulus direction and how this representation is modulated by the uncertainty.
+                    \end{minipage}
+                    \hfill
+                    \begin{minipage}{0.47\textwidth}
+                        \includegraphics[width=\textwidth]{1D2D_Aperturepb_Montagnini2007.png}
+                    \end{minipage}
+                \end{minipage}
+
+                \vspace{0.5cm}
+                \begin{minipage}{\textwidth}
+                    \includegraphics[width=\textwidth]{Intro-Hugo.png}
+                \end{minipage}
+            \end{tcolorbox}
+            \vspace{0.2cm}
+            % \begin{tcolorbox}[
+            %     title=\textbf{Acknowledgement},
+            %     colframe=gray!60!white!,
+            %     colback=white, 
+            %     boxsep=5mm
+            % ]
+            %     \small This work was supported by ANR-NSF CRCNS grant “PrioSens” N° ANR-20-NEUC-0002 attributed to G.S.M, N.J.P. and L.U.P. and by a doctoral grant from the French Ministry of Higher Education and Research, awarded by the Doctoral School 62 of Aix-Marseille University to A.L. % TODO ajouter quelque chose pour le financement de Matthieu.
+            % \end{tcolorbox}
+        \end{minipage}
+        \hfill
+        % Methodology
+        \begin{minipage}{0.57\textwidth}
+            \begin{tcolorbox}[
+                enhanced,
+                colframe=red!60!white,
+                colback=white,
+                arc=3mm,
+                boxsep=5mm,
+                attach boxed title to top left={xshift=8mm,yshift=-3mm},
+                boxed title style={
+                    colback=white,
+                    colframe=white,
+                    sharp corners
+                },
+                coltitle=black,
+                title=\textbf{\Large Method}
+            ]
+                \begin{minipage}{0.4\textwidth}
+                    \begin{minipage}{\textwidth}
+                        Each stimulus (A, B, C, D) is obtained by assigning a random phase to its corresponding Fourier envelope (A’, B’, C’, D’) and computing the inverse Fourier transform. The MotionClouds library~\cite{Leon_Vanzetta_Masson_Perrinet_2012} enables precise control of orientation and spatial frequency bandwidths ($B_\theta$, $B_{sf}$).
+                    \end{minipage}
+                    
+                    \vspace{1cm}
+                    \begin{minipage}{\textwidth}
+                        \includegraphics[width=\textwidth]{overview_of_enveloppe.pdf}
+                    \end{minipage}
+                \end{minipage}
+                \begin{minipage}{0.6\textwidth}
+                    \includegraphics[width=\textwidth]{overview_of_stimuli.pdf}
+                \end{minipage}
+
+                \begin{minipage}{\textwidth}
+                    Neuronal recordings were made in V1 of one marmoset monkey using the Neuropixel technology during 2D motion presentation in twelve directions ($\theta$) from $0^{\circ}$ to $375^{\circ}$, four levels of orientation bandwidth ($B_\theta$; $0^{\circ}$, $15^{\circ}$, $30^{\circ}$ and $45^{\circ}$) and 4 levels of spatial frequency bandwidth ($B_{sf}$; $0.01$, $0.175$, $0.7$ and $2.8$ cpd).
+                \end{minipage}
+                %     \begin{center}
+                %         \includegraphics[width=\textwidth]{stim.pdf}
+                %         \captionof{figure}{Fourier space representation of the envelope of MotionClouds stimuli. Resulting images (top-left inset) are generated by the inverse Fourier transform of the envelope after the application of a random phase.}
+                %         \label{fig:stimulus_in_func_space}
+                %     \end{center}
+                %     \vspace{0.5cm}
+                %     \begin{minipage}{\textwidth}
+                %         \begin{minipage}{0.40\textwidth}
+                %             The 2D ($f_r$; $f_\theta$) functional space used is described as follows The idea is to find the best template in Fourier space that predicts the neuronal activity induced by each stimuli.
+                %             \begin{equation*}
+                %                 \begin{aligned}
+                %                     f_r &= e^{-\frac{1}{2} \log{\frac{sf - sf_0}{B_{sf}}}} \\
+                %                     f_\theta &= e^{\frac{\cos{2(\theta - \theta_0)}}{4B_\theta^2}}
+                %                 \end{aligned}
+                %             \end{equation*}
+                %             The tuning curve model is defined by the following equations in order to predict the activity ($A$) of each neuron in each condition.
+                %             \begin{equation*}
+                %                 \begin{aligned}
+                %                     &A_\theta = \kappa_\theta \times (\cos(2 \times (\theta - \theta_0)) - 1) \\
+                %                     &A_\phi = \kappa_\phi \times (\cos(\theta - \theta_0) - 1) \\
+                %                     &A = e^{A_\theta + A_\phi + \log{R_{amp}}} + R_0
+                %                 \end{aligned}
+                %             \end{equation*}
+                %         \end{minipage}
+                %         \hfill
+                %         \begin{minipage}{0.58\textwidth}
+                %             Orientation and direction selective indices ($OSI$ and $DSI$) are computed from our parameters ($\kappa_\phi$, $\kappa_\theta$, $\theta_0$...).
+                %             \begin{equation*}
+                %                 \begin{aligned}
+                %                     DSI &= \frac{R_\text{pref} - R_\text{null}}{R_\text{pref}} =  \frac{R_\text{amp}(1 - e^{-2\kappa_\phi})}{R_0 + R_\text{amp}} \\
+                %                     % OSI &= \frac{R_\text{pref}+R_\text{null}-(R_{\text{orth}+} + R_{\text{orth}-})}{R_\text{pref} + R_\text{null}} \\
+                %                     % &= \frac{R_\text{amp} \times(1 + e^{-2\kappa_\phi} - 2e^{- (2\kappa_\theta + \kappa_\phi)})}{2R_0 + R_\text{amp} \times (1 + e^{-2\kappa_\phi})} 
+                %                 \end{aligned}
+                %             \end{equation*}
+                %             Decoding method based on \cite{Jazayeri_Movshon_2006} define the likelihood function of the stimulus direction as an equivalent to the sum of the likelihood functions of each neuron, which is equivalent to summing the agreement functions of each neuron weighted by the activity of each neuron during stimulus presentation. If we take $W_i$ as the tuning curve of neuron $i$ and $A^s_i$ as the activity induced by simulus $s$. Then, $L^s_i$ and $L^s$ are respectively the likelihood function for a particular trial of the neuron $i$ and the population.
+                %             \begin{equation*}
+                %                 \log{L^s(\theta)} = \sum^N_{i=0}\log{L^s_i(\theta)} = \sum^N_{i=0}{A^s_i(\theta)\log{W_i(\theta)}}
+                %             \end{equation*}
+                %         \end{minipage}
+                %     \end{minipage}
+                % \end{minipage}
+            \end{tcolorbox}
+        \end{minipage}
+    \end{minipage}
+
+    \vspace{1.3cm}
+    
+    % First part of the results
+    \begin{minipage}{\textwidth}
+        \begin{minipage}{\textwidth}
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Results : single neuron analysis}},
+                colback=white, 
+                colframe=green!85!black!75,
+                boxsep=5mm
+            ]
+                \begin{minipage}{0.50\textwidth}
+                    \begin{minipage}{0.33\textheight}
+                        \includegraphics[width=0.22\textwidth]{part7g19_neuron_5_four.pdf}
+                        \includegraphics[width=0.78\textwidth]{part7g19_neuron-5_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{0.33\textheight}
+                        % \includegraphics[width=0.22\textwidth]{part7g19_neuron_1_four.pdf}
+                        % \includegraphics[width=0.78\textwidth]{part7g19_neuron-1_tc.pdf}
+                        \includegraphics[width=0.22\textwidth]{part4g9_neuron_15_four.pdf}
+                        \includegraphics[width=0.78\textwidth]{part4g9_neuron-15_tc.pdf}
+                    \end{minipage}
+                    \begin{minipage}{0.33\textheight}
+                        \includegraphics[width=0.22\textwidth]{part2g2_neuron_23_four.pdf}
+                        \includegraphics[width=0.78\textwidth]{part2g2_neuron-23_tc.pdf}
+                    \end{minipage}
+                    \captionof{figure}{Mean DSI and OSI in population.}
+                \end{minipage}
+                \hfill
+                \begin{minipage}{0.3\textwidth}
+                    \includegraphics[width=\textwidth]{pooling.pdf}
+                    \includegraphics[width=\textwidth]{OSI-DSI.pdf}
+                    \captionof{figure}{Mean DSI and OSI in population.}
+                \end{minipage}  
+                \hfill
+                \begin{minipage}{0.19\textwidth}
+                    Ici sera présent un text descrivant les points importants de cette partie, ou/et une petite figure ??
+                \end{minipage}
+            \end{tcolorbox}
+        \end{minipage}
+    \end{minipage}
+
+    \vspace{1.3cm}
+
+    % Second part of the results + conclusion
+    \begin{minipage}{\textwidth}
+        \begin{minipage}{0.4\textwidth}
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Results : population decoding}},
+                colback=white, 
+                colframe=green!85!black!85,
+                boxsep=5mm
+            ]
+                \begin{minipage}{\textwidth}
+                    \includegraphics[width=\textwidth]{DecodingAccuracy.png}
+                    \captionof{figure}{Decoding results for multiple level of orientation bandwidth. \textbf{A.} Decoding the direction of the stimulus. \textbf{B.} Decoding the orientaiton of the stimulus.}
+                \end{minipage}
+            \end{tcolorbox}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.58\textwidth}
+            \begin{tcolorbox}[
+                title=\textbf{\Large{Discussion}},
+                colback=white, 
+                colframe=blue!60!white,
+                boxsep=5mm
+            ]
+                The encoding approach This decoding approach clarifies the \textbf{representation of directional information} in the marmoset primary visual cortex.
+            \end{tcolorbox}
+            \hfill
+            \begin{tcolorbox}[
+                title=\textbf{References},
+                colback=white, 
+                colframe=gray!60!white!,
+                boxsep=5mm
+            ]
+                \printbibliography[heading=none]
+            \end{tcolorbox}
+        \end{minipage}
+    \end{minipage}
+\end{document}
